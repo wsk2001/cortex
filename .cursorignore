@@ -1,0 +1,60 @@
+# =============================================================
+# .cursorignore -- Exclude large files from Cursor's AI indexer
+# =============================================================
+# Cursor respects this file just like .gitignore syntax.
+# Files listed here won't appear in AI search results or be
+# auto-loaded into context, saving tokens and reducing noise.
+#
+# Uncomment the sections that apply to your stack.
+
+# ----- Universal -----
+*.lock
+*.min.js
+*.min.css
+*.map
+
+# ----- JavaScript / TypeScript -----
+# node_modules/
+# dist/
+# build/
+# .next/
+# coverage/
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
+
+# ----- iOS / Swift -----
+# DerivedData/
+# build/
+# *.xcworkspace/
+# xcuserdata/
+# Pods/
+# Carthage/
+
+# ----- Android / Kotlin -----
+# .gradle/
+# build/
+# app/build/
+# *.apk
+
+# ----- Flutter / Dart -----
+# .dart_tool/
+# build/
+# .flutter-plugins
+# .flutter-plugins-dependencies
+# ios/Pods/
+# pubspec.lock
+
+# ----- Python -----
+# __pycache__/
+# *.pyc
+# .venv/
+# venv/
+# dist/
+# *.egg-info/
+
+# ----- Generated / Large data files -----
+# Add your project-specific large files here:
+# src/data/seed-data.ts
+# src/generated/
+# assets/fonts/

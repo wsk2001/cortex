@@ -1,0 +1,47 @@
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE (keep Cursor rules tracked -- they're project config)
+.cursor/*
+!.cursor/rules/
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Secrets -- NEVER commit these
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+credentials.json
+*secret*
+serviceAccountKey.json
+
+# Build artifacts (uncomment your stack)
+# --- iOS ---
+# DerivedData/
+# build/
+# *.xcworkspace/
+# xcuserdata/
+# Pods/
+
+# --- JavaScript / TypeScript ---
+# node_modules/
+# dist/
+# build/
+# .next/
+# coverage/
+
+# --- Python ---
+# __pycache__/
+# *.pyc
+# .venv/
+# venv/
+
+# --- Flutter ---
+# .dart_tool/
+# build/
+# ios/Pods/

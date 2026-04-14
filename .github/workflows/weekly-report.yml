@@ -1,0 +1,56 @@
+# Generate a weekly project status report.
+# Runs every Monday at 9am UTC and commits a summary to docs/.
+#
+# To enable: remove the "if: false" line below.
+
+name: Weekly Report
+
+on:
+  schedule:
+    - cron: '0 9 * * 1'  # Every Monday at 9am UTC
+  workflow_dispatch:  # Allow manual trigger
+
+jobs:
+  report:
+    if: false  # Remove this line to enable -- AI does this during setup
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Generate weekly report
+        run: |
+          WEEK_START=$(date -u -d "7 days ago" +%Y-%m-%d 2>/dev/null || date -u -v-7d +%Y-%m-%d)
+          WEEK_END=$(date -u +%Y-%m-%d)
+          REPORT_FILE="docs/reports/week-${WEEK_END}.md"
+          mkdir -p docs/reports
+
+          echo "# Weekly Report: ${WEEK_START} to ${WEEK_END}" > "$REPORT_FILE"
+          echo "" >> "$REPORT_FILE"
+
+          # Commit summary
+          echo "## Summary" >> "$REPORT_FILE"
+          COMMIT_COUNT=$(git rev-list --count --since="${WEEK_START}" HEAD 2>/dev/null || echo "0")
+          echo "- **${COMMIT_COUNT} commits** this week" >> "$REPORT_FILE"
+          echo "" >> "$REPORT_FILE"
+
+          # All commits this week
+          echo "## Commits" >> "$REPORT_FILE"
+          git log --since="${WEEK_START}" --pretty=format:"- %s (%h, %ad)" --date=short >> "$REPORT_FILE" \
+            || echo "- No commits this week" >> "$REPORT_FILE"
+          echo "" >> "$REPORT_FILE"
+
+          # Files with most changes
+          echo "" >> "$REPORT_FILE"
+          echo "## Most Active Files" >> "$REPORT_FILE"
+          git diff --stat "HEAD@{7 days ago}" HEAD 2>/dev/null | tail -20 >> "$REPORT_FILE" \
+            || echo "- Unable to determine" >> "$REPORT_FILE"
+
+      - name: Commit report
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add docs/reports/
+          git diff --cached --quiet || git commit -m "Weekly report: $(date -u +%Y-%m-%d)"
+          git push

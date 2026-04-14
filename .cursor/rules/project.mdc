@@ -1,0 +1,47 @@
+---
+description: Project overview, task routing, auto-maintain rules, and conventions. Loaded on every interaction.
+alwaysApply: true
+---
+
+# [Your App Name]
+
+<!-- AI fills this in during onboarding. -->
+
+[Platform] app built with [framework]. [What it does in one sentence.]
+
+## File Map
+
+Source: `src/` ([N] files)
+
+Full file map: `docs/APP_ARCHITECTURE.md`
+Product spec: `docs/PRD.md`
+
+## Task Routing
+
+| Task | Read first | Skip |
+|------|-----------|------|
+| Plan what to build next | `docs/PRD.md` | Source code |
+| Bug fix | `docs/APP_ARCHITECTURE.md` -> relevant file(s), `docs/DECISION_LOG.md` | Unrelated areas, generated files |
+| New feature | `docs/PRD.md`, `docs/APP_ARCHITECTURE.md`, `docs/DECISION_LOG.md` | Generated files |
+| UI polish | `docs/APP_ARCHITECTURE.md` -> relevant view file | Models, services, config |
+| Config change | Config files only | All source code |
+
+## Do NOT Load
+
+<!-- AI fills this in. Large generated/data files that waste tokens. -->
+
+## Auto-Maintain
+
+After completing any task:
+- Created or renamed files -> update `docs/APP_ARCHITECTURE.md`
+- Made an architectural or product decision -> add to `docs/DECISION_LOG.md`
+- Completed a feature -> mark "done" in `docs/PRD.md`
+- Changed behavior -> suggest what to test, offer to write tests
+
+## Conventions
+
+- **Check decisions first**: Read `docs/DECISION_LOG.md` before changing architecture.
+- **PRD is source of truth**: If a feature isn't in the PRD, discuss before building.
+- **Propose before building**: For structural changes, propose the approach first.
+- **No hardcoded secrets**: Use environment variables. Flag any secrets in code immediately.
+- **Commit after each feature**: Clear, descriptive commit messages.

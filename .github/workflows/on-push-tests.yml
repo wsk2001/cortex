@@ -1,0 +1,49 @@
+# Run tests on every push to main.
+# AI customizes this for your stack during setup.
+#
+# To enable: remove the "if: false" line below.
+# This template is intentionally disabled until AI configures it for your project.
+
+name: Tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  test:
+    if: false  # Remove this line to enable -- AI does this during setup
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # --- iOS (Xcode) ---
+      # - name: Build and test
+      #   run: |
+      #     xcodebuild test \
+      #       -scheme YourScheme \
+      #       -destination 'platform=iOS Simulator,name=iPhone 16 Pro' \
+      #       -parallel-testing-enabled NO
+
+      # --- JavaScript / TypeScript ---
+      # - uses: actions/setup-node@v4
+      #   with:
+      #     node-version: 20
+      # - run: npm ci
+      # - run: npm test
+
+      # --- Python ---
+      # - uses: actions/setup-python@v5
+      #   with:
+      #     python-version: '3.12'
+      # - run: pip install -r requirements.txt
+      # - run: pytest
+
+      # --- Flutter ---
+      # - uses: subosito/flutter-action@v2
+      #   with:
+      #     flutter-version: '3.x'
+      # - run: flutter pub get
+      # - run: flutter test

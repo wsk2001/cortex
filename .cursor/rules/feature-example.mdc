@@ -1,0 +1,58 @@
+---
+description: Example scoped rule. Rename this file and customize the globs for your project.
+globs:
+  - "src/views/**"
+  - "src/components/**"
+---
+
+# UI / Views Context
+
+<!-- This rule auto-loads when you open any file matching the globs above. -->
+<!-- Create one of these for each major area of your codebase. -->
+
+You're working in the UI layer.
+
+## Key Files
+
+<!-- List the important files in this area and what they do. -->
+
+- `HomeScreen` -- main screen, navigation, daily stats
+- `SettingsScreen` -- user preferences, theme, notifications
+- `ProfileScreen` -- user profile, avatar, account management
+
+## Patterns
+
+<!-- List patterns specific to this area. -->
+
+- Use design system colors from `utils/colors` -- never hardcode hex values
+- Use shared font styles from `utils/typography`
+- Follow existing component structure for new screens
+
+## Dependencies
+
+<!-- What does this area depend on? Helps the AI understand the data flow. -->
+
+- Views observe state from `models/` via [state management approach]
+- API calls go through `services/` -- views never call APIs directly
+
+<!--
+SCOPED RULE EXAMPLES FOR COMMON STACKS:
+
+iOS/SwiftUI:
+  globs: ["Sources/Views/**", "Sources/Screens/**"]
+
+React/Next.js:
+  globs: ["src/components/**", "src/pages/**", "app/**"]
+
+Flutter:
+  globs: ["lib/screens/**", "lib/widgets/**"]
+
+React Native:
+  globs: ["src/screens/**", "src/components/**"]
+
+Django:
+  globs: ["*/views.py", "*/templates/**"]
+
+Rails:
+  globs: ["app/views/**", "app/controllers/**"]
+-->
