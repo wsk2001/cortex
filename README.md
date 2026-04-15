@@ -111,14 +111,14 @@ your-project/
 
 ```bash
 mkdir my-app && cd my-app
-git clone https://github.com/kelsocelso/cortex.git _cortex-setup && cp -r _cortex-setup/CLAUDE.md _cortex-setup/SETUP.md _cortex-setup/benchmark.sh _cortex-setup/docs _cortex-setup/.cursorignore _cortex-setup/.cursor _cortex-setup/.gitignore _cortex-setup/.github . 2>/dev/null; rm -rf _cortex-setup
+git clone https://github.com/wsk2001/cortex.git _cortex-setup && cp -r _cortex-setup/CLAUDE.md _cortex-setup/SETUP.md _cortex-setup/benchmark.sh _cortex-setup/docs _cortex-setup/.cursorignore _cortex-setup/.cursor _cortex-setup/.gitignore _cortex-setup/.github . 2>/dev/null; rm -rf _cortex-setup
 ```
 
 **기존 프로젝트에 추가하기:**
 
 ```bash
 cd your-project
-git clone https://github.com/kelsocelso/cortex.git _cortex-setup && cp -r _cortex-setup/CLAUDE.md _cortex-setup/SETUP.md _cortex-setup/benchmark.sh _cortex-setup/docs _cortex-setup/.cursorignore _cortex-setup/.cursor _cortex-setup/.gitignore _cortex-setup/.github . 2>/dev/null; rm -rf _cortex-setup
+git clone https://github.com/wsk2001/cortex.git _cortex-setup && cp -r _cortex-setup/CLAUDE.md _cortex-setup/SETUP.md _cortex-setup/benchmark.sh _cortex-setup/docs _cortex-setup/.cursorignore _cortex-setup/.cursor _cortex-setup/.gitignore _cortex-setup/.github . 2>/dev/null; rm -rf _cortex-setup
 ```
 
 ### 2. 클로드 코드 또는 커서를 열고 입력하세요 `setup`
