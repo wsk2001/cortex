@@ -130,17 +130,14 @@ git clone https://github.com/wsk2001/cortex.git _cortex-setup && cp -r _cortex-s
 ```cmd
 git clone https://github.com/wsk2001/cortex.git _cortex-setup
 
-REM docs 폴더가 없으면 생성
-if not exist docs mkdir docs
-
-xcopy _cortex-setup\CLAUDE.md docs\ /Y
-xcopy _cortex-setup\SETUP.md docs\ /Y
-xcopy _cortex-setup\benchmark.sh docs\ /Y
+xcopy _cortex-setup\CLAUDE.md . /Y
+xcopy _cortex-setup\SETUP.md . /Y
+xcopy _cortex-setup\benchmark.sh . /Y
 xcopy _cortex-setup\docs docs\ /E /I /Y
-xcopy _cortex-setup\.cursorignore docs\ /Y
-xcopy _cortex-setup\.cursor docs\ /E /I /Y
+xcopy _cortex-setup\.cursorignore . /Y
+xcopy _cortex-setup\.cursor .cursor\ /E /I /Y
 xcopy _cortex-setup\.gitignore docs\ /Y
-xcopy _cortex-setup\.github docs\ /E /I /Y
+xcopy _cortex-setup\.github .github\ /E /I /Y
 
 rmdir /S /Q _cortex-setup
 ```
