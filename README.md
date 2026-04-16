@@ -118,19 +118,23 @@ git clone https://github.com/wsk2001/cortex.git _cortex-setup && cp -r _cortex-s
 ```
 
 **기존 프로젝트에 추가하기:**
+> 기존에 AGENTS.md 파일이 있는 경우 삭제되고 새로 생성 되므로 주의 해야함.
+> 필요시 AGENTS.md 파일을 백업 받고 작업 하거나 git clone 스크립트에서 AGENTS.md 관련 부분을 빼고 작업 해야함.
+
 
 ```bash
 cd your-project
 ```
 `Linux 용`
 ```bash
-git clone https://github.com/wsk2001/cortex.git _cortex-setup && cp -r _cortex-setup/CLAUDE.md _cortex-setup/SETUP.md _cortex-setup/benchmark.sh _cortex-setup/docs _cortex-setup/.cursorignore _cortex-setup/.cursor _cortex-setup/.gitignore _cortex-setup/.github . 2>/dev/null; rm -rf _cortex-setup
+git clone https://github.com/wsk2001/cortex.git _cortex-setup && cp -r _cortex-setup/AGENTS.md _cortex-setup/CLAUDE.md _cortex-setup/SETUP.md _cortex-setup/benchmark.sh _cortex-setup/docs _cortex-setup/.cursorignore _cortex-setup/.cursor _cortex-setup/.gitignore _cortex-setup/.github . 2>/dev/null; rm -rf _cortex-setup
 ```
 
 `Windows CMD 용`
 ```cmd
 git clone https://github.com/wsk2001/cortex.git _cortex-setup
 
+xcopy _cortex-setup\AGENTS.md . /Y
 xcopy _cortex-setup\CLAUDE.md . /Y
 xcopy _cortex-setup\SETUP.md . /Y
 xcopy _cortex-setup\AGENTS.md . /Y
@@ -147,7 +151,7 @@ rmdir /S /Q _cortex-setup
 `Windows PowerShell 용`
 ```powershell
 git clone https://github.com/wsk2001/cortex.git _cortex-setup
-Copy-Item _cortex-setup\CLAUDE.md, _cortex-setup\SETUP.md, _cortex-setup\benchmark.sh, _cortex-setup\docs, _cortex-setup\.cursorignore, _cortex-setup\.cursor, _cortex-setup\.gitignore, _cortex-setup\.github -Destination .
+Copy-Item _cortex-setup\AGENTS.md, _cortex-setup\CLAUDE.md, _cortex-setup\SETUP.md, _cortex-setup\benchmark.sh, _cortex-setup\docs, _cortex-setup\.cursorignore, _cortex-setup\.cursor, _cortex-setup\.gitignore, _cortex-setup\.github -Destination .
 Remove-Item -Recurse -Force _cortex-setup
 ```
 
